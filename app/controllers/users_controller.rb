@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
+    @facade = GithubFacade.new
   end
 
   def new
