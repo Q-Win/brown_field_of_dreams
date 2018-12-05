@@ -12,8 +12,22 @@
   </section>
   <section>
     <h1> Github </h1>
-    <% @facade.repos.each do |repo| %>
-      <%= link_to "#{repo.name}", repo.url %>
-    <%end%>
+    <ul>
+      <% @facade.repos[0..4].each do |repo| %>
+        <li><%= link_to "#{repo.name}", repo.url %></li>
+      <%end%>
+    </ul>
+    <h1> Followers </h1>
+    <ul>
+      <% @facade.followers.each do |follower| %>
+        <li><%= link_to "#{follower.handle}", follower.url %></li>
+      <%end%>
+    </ul>
+    <h1> Following </h1>
+    <ul>
+      <% @facade.following.each do |following| %>
+        <li><%= link_to "#{following.handle}", following.url %></li>
+      <%end%>
+    </ul>
   </section>
 </section>

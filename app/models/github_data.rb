@@ -1,0 +1,3 @@
+class GithubData < ApplicationRecord
+
+end
