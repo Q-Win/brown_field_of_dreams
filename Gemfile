@@ -43,6 +43,8 @@ group :development, :test do
   gem 'vcr'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'sprockets', '>= 3.0.0'
+  gem 'sprockets-es6'
 end
 
 group :development do
