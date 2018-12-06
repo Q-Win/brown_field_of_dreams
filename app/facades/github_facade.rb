@@ -1,9 +1,10 @@
 class GithubFacade
 
-  def initialize
+  def initialize(token)
     @_repos = nil
     @_followers = nil
     @_following = nil
+    @token = token 
   end
 
   def repos
@@ -39,7 +40,7 @@ class GithubFacade
   end
 
   def service
-    GithubService.new
+    GithubService.new(@token)
   end
 
 

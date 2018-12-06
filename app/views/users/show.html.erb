@@ -11,6 +11,7 @@
     <h1>Bookmarked Segments</h1>
   </section>
   <section>
+    <% if current_user && current_user.github_data %>
     <h1> Github </h1>
     <ul>
       <% @facade.repos[0..4].each do |repo| %>
@@ -28,6 +29,9 @@
       <% @facade.following.each do |following| %>
         <li><%= link_to "#{following.handle}", following.url %></li>
       <%end%>
+    <%else%>
+      <%= link_to "Connect to Github", '/auth/github' %>
+    <% end %>
     </ul>
   </section>
 </section>
