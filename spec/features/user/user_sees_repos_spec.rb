@@ -8,7 +8,7 @@ describe 'User' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit "/dashboard"
-      save_and_open_page
+
       expect(page).to have_content('Github')
       expect(page).to have_link('dsi-python-fundamentals')
       expect(page).to have_content('Followers')

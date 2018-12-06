@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one :github_data
   has_many :user_videos
   has_many :videos, through: :user_videos
 
