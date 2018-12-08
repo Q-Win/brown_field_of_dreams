@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_205815) do
+ActiveRecord::Schema.define(version: 2018_12_08_220230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "friend_id"
+    t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
 
   create_table "github_data", force: :cascade do |t|
     t.string "token"
@@ -87,6 +93,7 @@ ActiveRecord::Schema.define(version: 2018_12_04_205815) do
     t.index ["tutorial_id"], name: "index_videos_on_tutorial_id"
   end
 
+  add_foreign_key "friendships", "users"
   add_foreign_key "github_data", "users"
   add_foreign_key "user_videos", "users"
   add_foreign_key "user_videos", "videos"
