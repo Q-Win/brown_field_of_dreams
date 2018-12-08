@@ -4,7 +4,7 @@ class GithubFacade
     @_repos = nil
     @_followers = nil
     @_following = nil
-    @token = token 
+    @token = token
   end
 
   def repos
@@ -15,13 +15,13 @@ class GithubFacade
 
   def followers
     follower_results.map do |follower_data|
-      Follower.new(follower_data)
+      GithubUser.new(follower_data)
     end
   end
 
   def following
     following_results.map do |following_data|
-      Following.new(following_data)
+      GithubUser.new(following_data)
     end
   end
 
