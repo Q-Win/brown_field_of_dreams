@@ -9,6 +9,11 @@
   </ul>
   <section>
     <h1>Bookmarked Segments</h1>
+    <ul>
+    <% @user_videos.each do |video| %>
+      <li><%=link_to video.title, "/tutorials/#{video.tutorial_id}?video_id=#{video.id}" %></li>
+    <%end%>
+  </ul>
   </section>
   <section>
     <% if current_user && current_user.github_data %>
