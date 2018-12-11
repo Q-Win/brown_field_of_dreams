@@ -11,6 +11,8 @@ describe 'User' do
 
       expect(page).to have_content('Github')
       expect(page).to have_link('Connect to Github')
+
+      click_on 'Connect to Github'
     end
 
   end

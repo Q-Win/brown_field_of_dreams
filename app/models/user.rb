@@ -9,4 +9,9 @@ class User < ApplicationRecord
   validates_presence_of :first_name
   enum role: [:default, :admin]
   has_secure_password
+
+  def sort_videos
+    videos.joins(:tutorial).order('tutorial_id ASC, videos.id')
+  end
+
 end

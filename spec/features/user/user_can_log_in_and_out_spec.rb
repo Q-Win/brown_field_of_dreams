@@ -16,7 +16,7 @@ describe 'User' do
       fill_in 'session[password]', with: user.password
 
       click_on 'Log In'
-
+    
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content(user.email)
       expect(page).to have_content(user.first_name)
