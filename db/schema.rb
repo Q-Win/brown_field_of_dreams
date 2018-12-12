@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2018_12_10_232307) do
     t.bigint "friend_id"
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
     t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true
+    t.bigint "user_id"
+    t.integer "friend_id"
     t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
@@ -98,6 +100,7 @@ ActiveRecord::Schema.define(version: 2018_12_10_232307) do
     t.index ["tutorial_id"], name: "index_videos_on_tutorial_id"
   end
 
+  add_foreign_key "friendships", "users"
   add_foreign_key "github_data", "users"
   add_foreign_key "user_videos", "users"
   add_foreign_key "user_videos", "videos"

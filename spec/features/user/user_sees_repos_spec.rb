@@ -13,11 +13,9 @@ describe 'User' do
       visit "/dashboard"
 
       expect(page).to have_content('Github')
-      expect(page).to have_link('dsi-python-fundamentals')
-      expect(page).to have_content('Followers')
-      expect(page).to have_link('averimj')
-      expect(page).to have_content('Following')
-      expect(page).to have_link('prestonjarnagin')
+      expect(page).to have_link('Connect to Github')
+
+      click_on 'Connect to Github'
     end
 
   end

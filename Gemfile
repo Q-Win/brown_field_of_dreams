@@ -27,7 +27,8 @@ gem 'will_paginate'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'omniauth-github'
 gem 'omniauth-census', git: "https://github.com/turingschool-projects/omniauth-census"
-
+gem 'sprockets', '>= 3.0.0'
+gem 'sprockets-es6'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -44,8 +45,6 @@ group :development, :test do
   gem 'vcr'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
-  gem 'sprockets', '>= 3.0.0'
-  gem 'sprockets-es6'
 end
 
 group :development do
