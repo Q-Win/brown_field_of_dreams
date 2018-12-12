@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
   get "/auth/:provider/callback", to: "github#create"
-  get 'auth/failure', to: redirect('/dashboard')
+  get '/auth/failure', to: redirect('/dashboard')
 
   get '/dashboard', to: 'users#show'
   get '/about', to: 'about#show'
@@ -43,5 +43,7 @@ Rails.application.routes.draw do
     resources :videos, only: [:show, :index]
   end
 
-  resources :user_videos, only:[:create, :destroy]
+  resources :user_videos, only: [:create, :destroy]
+
+  resources :friendships, only: [:create, :destroy]
 end

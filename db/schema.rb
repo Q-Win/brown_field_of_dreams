@@ -10,14 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2018_12_10_232307) do
+=======
 ActiveRecord::Schema.define(version: 2018_12_08_220230) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "friendships", force: :cascade do |t|
+<<<<<<< HEAD
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "friend_id"
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true
+=======
     t.bigint "user_id"
     t.integer "friend_id"
+>>>>>>> master
     t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
@@ -25,6 +38,7 @@ ActiveRecord::Schema.define(version: 2018_12_08_220230) do
     t.string "token"
     t.string "user_name"
     t.bigint "user_id"
+    t.integer "github_id"
     t.index ["user_id"], name: "index_github_data_on_user_id"
   end
 
