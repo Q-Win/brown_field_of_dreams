@@ -6,10 +6,9 @@ describe 'Github Oauth' do
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit dashboard_path
-
+    visit '/dashboard'
     click_on("Connect to Github")
 
-    expect(current_path).to eq('https://github.com/auth')
+    expect(current_path).to eq('/dashboard')
   end
 end

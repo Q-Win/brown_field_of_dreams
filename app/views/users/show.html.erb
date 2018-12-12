@@ -10,6 +10,13 @@
   <section>
     <h1>Bookmarked Segments</h1>
   </section>
+
+  <section>
+    <h1>Friends</h1>
+    <% current_user.friends.each do |friend| %>
+      <%= friend.first_name %>
+    <% end %>
+  </section>
   <section>
     <% if current_user && current_user.github_data %>
     <h1> Github </h1>
@@ -22,12 +29,32 @@
     <ul>
       <% @facade.followers.each do |follower| %>
         <li><%= link_to "#{follower.handle}", follower.url %></li>
+        <% data = GithubData.associated_user(follower) %>
+        <% user = data.user if data %>
+        <% if data %>
+          <% if current_user.friendships.find_by(friend_id: user.id) %>
+            <%= button_to 'Remove Friend', friendship_path(current_user.id, friend_id: user.id), method: :delete %>
+          <% else %>
+            <%= button_to 'Add Friend', friendships_path(friend_id: user.id), method: :post %>>
+          <% end %>
+        <% end %>
       <%end%>
     </ul>
     <h1> Following </h1>
     <ul>
       <% @facade.following.each do |following| %>
         <li><%= link_to "#{following.handle}", following.url %></li>
+        <% data = GithubData.associated_user(following) %>
+        <% user = data.user if data %>
+        <% if data %>
+          <% if current_user.friendships.find_by(friend_id: user.id) %>
+          <div class='remove-friend'>
+            <%= button_to 'Remove Friend', friendship_path(current_user.id, friend_id: user.id), method: :delete %>
+          <div>
+          <% else %>
+            <%= button_to 'Add Friend', friendships_path(friend_id: user.id), method: :post %>>
+          <% end %>
+        <% end %>
       <%end%>
     <%else%>
       <%= link_to "Connect to Github", '/auth/github' %>

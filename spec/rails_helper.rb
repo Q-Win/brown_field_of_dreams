@@ -50,4 +50,14 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.filter_rails_from_backtrace!
+
+  OmniAuth.config.test_mode = true
+
+  Capybara.default_host = 'http://localhost:3000'
+
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.add_mock(:github, :credentials => {
+    :token => '54321'},
+    :extra => {:raw_info => {:id => '12345', :login => 'jaw'}}
+  )
 end
