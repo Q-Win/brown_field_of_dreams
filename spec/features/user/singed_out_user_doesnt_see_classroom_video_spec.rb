@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'A vistor' do
   it 'cant see classroom content' do
     @user = User.create(email: 'bob@bob.com',first_name: 'bob',
-            last_name: "smith", password: 'bob')
+            last_name: "smith", password: 'bob', activated: true)
     @tutorial_1 = Tutorial.create(title: "should see", description: "wow",
               thumbnail: "nope", playlist_id: "1")
     @tutorial_2 = Tutorial.create(title: "should only see if logged in", description: "wow",
@@ -22,7 +22,7 @@ describe 'A vistor' do
     @user_video_2 = UserVideo.create(user_id: @user.id, video_id: @video_2.id)
     @user_video_3 = UserVideo.create(user_id: @user.id, video_id: @video_3.id)
     @user_video_4 = UserVideo.create(user_id: @user.id, video_id: @video_4.id)
-    
+
     visit '/'
 
     expect(page).to have_content(@tutorial_1.title)
