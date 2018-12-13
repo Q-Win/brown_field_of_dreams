@@ -22,7 +22,7 @@ describe 'A vistor' do
     @user_video_2 = UserVideo.create(user_id: @user.id, video_id: @video_2.id)
     @user_video_3 = UserVideo.create(user_id: @user.id, video_id: @video_3.id)
     @user_video_4 = UserVideo.create(user_id: @user.id, video_id: @video_4.id)
- 
+
     visit '/'
 
     expect(page).to have_content(@tutorial_1.title)
