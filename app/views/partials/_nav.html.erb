@@ -11,6 +11,8 @@
       <div class="align-middle table-cell p3">
         <%= link_to "Profile", dashboard_path %>
       </div>
+      <p> Logged in as <%= current_user.first_name %> </p>
+      <p> Current Status: <%= current_user.activated ? "Active" : "Inactive" %> </p>
       <% if current_user.admin? %>
       <div class="align-middle table-cell p3">
         <%= link_to "Admin", admin_dashboard_path %>

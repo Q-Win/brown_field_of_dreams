@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   get 'tags/:tag', to: 'welcome#index', as: :tag
-  get '/register', to: 'users#new'
 
   namespace :admin do
     get "/dashboard", to: "dashboard#show"
@@ -38,6 +37,7 @@ Rails.application.routes.draw do
   get '/video', to: 'video#show'
 
   resources :users, only: [:new, :create, :update, :edit]
+  get '/register', to: 'users#new'
 
   resources :tutorials, only: [:show, :index] do
     resources :videos, only: [:show, :index]
@@ -46,4 +46,6 @@ Rails.application.routes.draw do
   resources :user_videos, only: [:create, :destroy]
 
   resources :friendships, only: [:create, :destroy]
+
+  resources :account_activations, only: [:edit]
 end

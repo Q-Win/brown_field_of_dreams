@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def show
 
     if current_user.github_data
@@ -18,8 +19,11 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
     if user.save
-      session[:user_id] = user.id
-      redirect_to dashboard_path
+      activation_token = user.activation_token
+      user.update_attribute(:activation_digest , digest(activation_token))
+      UserMailer.email_confirmation(user, activation_token).deliver
+      flash[:success] =  "This account has not yet been activated. Please check your email."
+      redirect_to root_path
     else
       flash[:error] = 'Username already exists'
       render :new
@@ -30,6 +34,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :password)
+  end
+
+  def digest(token)
+    BCrypt::Password.create(token)
   end
 
 end

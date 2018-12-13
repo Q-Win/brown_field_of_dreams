@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'A registered user profile' do
   it 'displays bookmarked videos' do
     @user = User.create(email: 'bob@bob.com',first_name: 'bob',
-            last_name: "smith", password: 'bob')
+            last_name: "smith", password: 'bob', activated: true)
     @tutorial_1 = Tutorial.create(title: "fun", description: "wow",
               thumbnail: "nope", playlist_id: "1")
     @tutorial_2 = Tutorial.create(title: "joy", description: "wow",
@@ -28,7 +28,7 @@ describe 'A registered user profile' do
     fill_in 'session[email]', with: @user.email
     fill_in 'session[password]', with: @user.password
     click_on 'Log In'
-    
+
     expect(page).to have_content(@video_1.title)
     expect(page).to have_content(@video_2.title)
     expect(page).to have_content(@video_3.title)

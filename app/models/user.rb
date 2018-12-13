@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   has_many :friendships
   has_many :friends, through: :friendships
 
@@ -16,4 +17,12 @@ class User < ApplicationRecord
     videos.joins(:tutorial).order('tutorial_id ASC, videos.id')
   end
 
+  def authenticated?(token)
+    return false if activation_digest.nil?
+    BCrypt::Password.new(activation_digest).is_password?(token)
+  end
+
+  def activation_token
+    SecureRandom.base64
+  end
 end

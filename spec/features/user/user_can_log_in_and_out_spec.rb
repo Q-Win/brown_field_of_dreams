@@ -4,7 +4,7 @@ describe 'User' do
   it 'user can sign in' do
     VCR.use_cassette("user_sign_in") do
 
-      user = create(:user)
+      user = create(:user, activated: true)
 
       visit '/'
 
@@ -16,7 +16,7 @@ describe 'User' do
       fill_in 'session[password]', with: user.password
 
       click_on 'Log In'
-    
+
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content(user.email)
       expect(page).to have_content(user.first_name)
@@ -27,7 +27,7 @@ describe 'User' do
   it 'can log out' do
     VCR.use_cassette("user_sign_out") do
 
-      user = create(:user)
+      user = create(:user, activated: true)
 
       visit login_path
 
