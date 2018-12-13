@@ -13,9 +13,8 @@ describe 'User' do
       visit "/dashboard"
 
       expect(page).to have_content('Github')
-      expect(page).to have_link('Connect to Github')
-
-      click_on 'Connect to Github'
+      expect(page).to have_content('averimj')
+      expect(page).to have_content('prestonjarnagin')
     end
 
   end
