@@ -6,7 +6,6 @@ class InviteController < ApplicationController
 
   def create
     email = GithubInviteFacade.new(params[:q]).email
-    email = "quinn.krug@yahoo.com"
     if !email.nil?
       UserMailer.invite_email(current_user.first_name, email, params[:q])
       flash[:success] = "Successfully sent invite!"
