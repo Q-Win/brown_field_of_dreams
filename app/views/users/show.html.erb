@@ -22,6 +22,7 @@
       <%= friend.first_name %>
     <% end %>
   </section>
+  <%= link_to "Send an Invite", '/invite' %>
   <section>
     <% if current_user && current_user.github_data %>
     <h1> Github </h1>
