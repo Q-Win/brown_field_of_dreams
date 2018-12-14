@@ -21,7 +21,8 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Fri, 14 Dec 2018 00:34:18 GMT
+
+      - Fri, 14 Dec 2018 01:08:17 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -31,9 +32,9 @@ http_interactions:
       X-Ratelimit-Limit:
       - '60'
       X-Ratelimit-Remaining:
-      - '51'
+      - '59'
       X-Ratelimit-Reset:
-      - '1544747936'
+      - '1544753297'
       Cache-Control:
       - public, max-age=60, s-maxage=60
       Vary:
@@ -68,5 +69,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"login":"qkTest","id":45720484,"node_id":"MDQ6VXNlcjQ1NzIwNDg0","avatar_url":"https://avatars0.githubusercontent.com/u/45720484?v=4","gravatar_id":"","url":"https://api.github.com/users/qkTest","html_url":"https://github.com/qkTest","followers_url":"https://api.github.com/users/qkTest/followers","following_url":"https://api.github.com/users/qkTest/following{/other_user}","gists_url":"https://api.github.com/users/qkTest/gists{/gist_id}","starred_url":"https://api.github.com/users/qkTest/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/qkTest/subscriptions","organizations_url":"https://api.github.com/users/qkTest/orgs","repos_url":"https://api.github.com/users/qkTest/repos","events_url":"https://api.github.com/users/qkTest/events{/privacy}","received_events_url":"https://api.github.com/users/qkTest/received_events","type":"User","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"public_repos":1,"public_gists":0,"followers":1,"following":8,"created_at":"2018-12-08T19:54:20Z","updated_at":"2018-12-13T22:30:41Z"}'
     http_version: 
-  recorded_at: Fri, 14 Dec 2018 00:34:18 GMT
+  recorded_at: Fri, 14 Dec 2018 01:08:17 GMT
 recorded_with: VCR 4.0.0
