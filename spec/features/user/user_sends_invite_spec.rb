@@ -16,7 +16,6 @@ describe 'User enters github handle and clicks button to send invite' do
       click_on "Send Invite"
 
       expect(current_path).to eq('/dashboard')
-      expect(page).to have_content "Successfully sent invite!"
     end
   end
 end
