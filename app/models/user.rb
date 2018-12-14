@@ -25,4 +25,8 @@ class User < ApplicationRecord
   def activation_token
     SecureRandom.base64
   end
+
+  def friend_of(user_id)
+    friendships.find_by(friend_id: user_id)
+  end
 end

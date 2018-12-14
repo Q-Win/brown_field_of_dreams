@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
     if current_user.github_data
       @facade = GithubFacade.new(current_user.github_data.token)
+      @repos = @facade.repos[0..4]
     end
 
     if current_user

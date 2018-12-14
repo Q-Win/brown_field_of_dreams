@@ -27,7 +27,7 @@
     <% if current_user && current_user.github_data %>
     <h1> Github </h1>
     <ul>
-      <% @facade.repos[0..4].each do |repo| %>
+      <% @repos.each do |repo| %>
         <li><%= link_to "#{repo.name}", repo.url %></li>
       <%end%>
     </ul>
@@ -38,7 +38,7 @@
         <% data = GithubData.associated_user(follower) %>
         <% user = data.user if data %>
         <% if data %>
-          <% if current_user.friendships.find_by(friend_id: user.id) %>
+          <% if current_user.friend_of(user.id) %>
             <%= button_to 'Remove Friend', friendship_path(current_user.id, friend_id: user.id), method: :delete %>
           <% else %>
             <%= button_to 'Add Friend', friendships_path(friend_id: user.id), method: :post %>>
@@ -53,7 +53,7 @@
         <% data = GithubData.associated_user(following) %>
         <% user = data.user if data %>
         <% if data %>
-          <% if current_user.friendships.find_by(friend_id: user.id) %>
+          <% if current_user.friend_of(user.id) %>
           <div class='remove-friend'>
             <%= button_to 'Remove Friend', friendship_path(current_user.id, friend_id: user.id), method: :delete %>
           <div>
